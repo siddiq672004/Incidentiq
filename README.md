@@ -90,7 +90,7 @@ Key benefits include:
 Clone the repository:
 
 ```bash
-https://github.com/siddiq672004/Incidentiq
+git clone https://github.com/siddiq672004/Incidentiq.git
 ```
 
 Navigate to the project:
@@ -138,6 +138,17 @@ http://localhost:3000
 5. The incident and analysis are stored in Supabase.
 6. Users can assign, comment on, and resolve incidents.
 
+## CI/CD
+
+This project uses GitHub Actions for Continuous Integration (CI) and Vercel for Continuous Deployment (CD).
+
+### Continuous Integration
+- GitHub Actions automatically runs on every push to the `main` branch.
+- The workflow installs project dependencies and builds the application to verify successful compilation.
+
+### Continuous Deployment
+- Vercel is connected to the GitHub repository.
+- Every successful push to the `main` branch automatically triggers a new deployment.
 
 ## Future Improvements
 
@@ -153,6 +164,10 @@ http://localhost:3000
 ## Live Demo
 
 https://incidentiq-orcin.vercel.app/login
+
+Email: test@example.com
+
+Password: password123
 
 ## Author
 
