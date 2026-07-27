@@ -116,16 +116,16 @@ export default function IncidentsPage() {
       return a.status === "Pending" ? -1 : 1;
     });
   return (
-    <main className="max-w-6xl mx-auto p-8">
+    <main className="mx-auto max-w-7xl p-4 md:p-6 lg:p-8">
       <div className="mb-8">
-        <h1 className="text-5xl font-bold text-white">
+        <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
           All Incidents
         </h1>
 
         <p className="mt-2 text-slate-400">
           Browse and manage incidents across your organization.
         </p>
-        <div className="mb-8 grid gap-6 md:grid-cols-3">
+        <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <div className="rounded-2xl border border-slate-700 bg-slate-900 p-6 shadow-lg transition-all duration-300 hover:scale-105">
             <p className="text-sm text-slate-400">
               Total Incidents
@@ -163,13 +163,13 @@ export default function IncidentsPage() {
           placeholder="Search by title..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="rounded border border-gray-600 bg-gray-800 px-3 py-2 text-white placeholder-gray-400"
+          className="w-full sm:w-72 rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white placeholder-gray-400"
         />
 
         <select
           value={severityFilter}
           onChange={(e) => setSeverityFilter(e.target.value)}
-          className="w-72 rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white outline-none transition-all duration-200 placeholder:text-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"        >
+          className="w-full sm:w-72 rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white outline-none transition-all duration-200 placeholder:text-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"        >
           <option value="All">All Severities</option>
           <option value="High">High</option>
           <option value="Medium">Medium</option>
@@ -186,9 +186,9 @@ export default function IncidentsPage() {
           <option value="Resolved">Resolved</option>
         </select>
       </div>
-      <div className="overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 shadow-lg">
+      <div className="overflow-x-auto rounded-2xl border border-slate-700 bg-slate-900 shadow-lg">
 
-        <table className="w-full">
+        <table className="min-w-[800px] w-full">
           <thead>
             {/* <tr className="bg-gray-100 text-black"> */}
             <tr className="border-b border-slate-700 bg-slate-800 text-slate-300">
@@ -262,7 +262,7 @@ export default function IncidentsPage() {
 
                   <button
                     onClick={() => handleDelete(incident.id)}
-                    className="rounded-xl bg-red-600 px-4 py-2 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-red-700"
+                    className="w-full rounded-xl bg-red-600 px-4 py-2 font-medium text-white transition hover:bg-red-700 sm:w-auto"
                   >
                     Delete
                   </button>
