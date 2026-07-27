@@ -1,17 +1,17 @@
 # IncidentIQ
 
-IncidentIQ is a full-stack AI-powered incident management system that helps IT teams analyze, track, and resolve system incidents. Users can submit incident logs, receive AI-generated analysis using Google's Gemini API, collaborate through comments, and manage incident resolution in a centralized dashboard.
+IncidentIQ is a full-stack AI-powered incident management system that helps IT teams analyze, track, and resolve system incidents. Users can submit incident logs, receive AI-generated analysis using Google's Gemini API, collaborate through comments, and manage incidents through an intuitive web application. The application demonstrates the integration of modern web technologies, Supabase for backend services and authentication, Google's Gemini API for AI-powered incident analysis, and GitHub Actions with Vercel for automated CI/CD and deployment.
 
 ## Business Value
 
-IncidentIQ helps IT support teams streamline incident management by combining AI-assisted analysis with centralized tracking.
+IncidentIQ helps IT support teams streamline incident management by combining AI-assisted analysis with an easy-to-use incident tracking system.
 
 Key benefits include:
 
-- Faster incident triage with AI-generated summaries and severity assessment.
-- Improved troubleshooting through suggested causes and recommended fixes.
-- Better team collaboration with incident assignments, comments, and activity logs.
-- Centralized visibility into incident status and progress.
+- Faster incident triage through AI-generated summaries and severity assessment.
+- Improved troubleshooting with AI-suggested causes and recommended fixes.
+- Better team collaboration through incident assignments, comments, and activity logs.
+- Improved visibility into incident status and resolution progress.
 - Reduced manual effort by automating the initial analysis of system logs.
 
 ## Features
@@ -52,9 +52,15 @@ Key benefits include:
 ### AI
 - Google Gemini API
 
+### CI/CD
+- GitHub Actions
+
 ### Deployment
 - Vercel
 
+### Version Control
+- Git
+- GitHub
 
 
 ## Screenshots
@@ -128,7 +134,7 @@ http://localhost:3000
 ## AI Workflow
 
 1. User submits an incident title and log.
-2. The application sends the data to the Gemini API.
+2. The application sends the incident title and log to the Google Gemini API.
 3. Gemini analyzes the incident.
 4. The AI returns:
    - Summary
@@ -159,15 +165,23 @@ This project uses GitHub Actions for Continuous Integration (CI) and Vercel for 
 - Admin dashboard
 - Real-time updates
 - Incident history timeline
+- Role-based access control (Admin, Support Engineer, User)
 
 
 ## Live Demo
 
 https://incidentiq-orcin.vercel.app/login
 
+## Demo Account
+
 Email: test@example.com
 
 Password: password123
+
+## Repository
+
+GitHub Repository:
+https://github.com/siddiq672004/Incidentiq
 
 ## Author
 
