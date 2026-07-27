@@ -158,7 +158,7 @@ export default function IncidentDetailsPage() {
       <h1 className="text-4xl font-bold">
         {incident.title}
       </h1>
-      <pre>{JSON.stringify(incident, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(incident, null, 2)}</pre> */}
       <div className="border rounded-lg p-6">
         <h2 className="text-xl font-semibold mb-2">
           Severity

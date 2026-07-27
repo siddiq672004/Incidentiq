@@ -122,9 +122,8 @@ export default function IncidentsPage() {
           <option value="Resolved">Resolved</option>
         </select>
       </div>
-      <div className="overflow-x-auto rounded-2xl border border-slate-700 bg-slate-900 shadow-lg">
-
-        <table className="min-w-[800px] w-full">
+      <div className="hidden overflow-x-auto rounded-2xl border border-slate-700 bg-slate-900 shadow-lg md:block">
+        <table className="w-full min-w-max">
 
           <thead>
             {/* <tr className="bg-gray-100 text-black"> */}
@@ -198,6 +197,75 @@ export default function IncidentsPage() {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="space-y-4 md:hidden">
+        {filteredIncidents.map((incident) => (
+          <div
+            key={incident.id}
+            className="rounded-2xl border border-slate-700 bg-slate-900 p-5 shadow-lg"
+          >
+            <Link
+              href={`/incidents/${incident.id}`}
+              className="text-lg font-bold text-blue-400 hover:underline"
+            >
+              {incident.title}
+            </Link>
+
+            <div className="mt-4 space-y-2 text-sm">
+
+              <p>
+                <span className="font-semibold text-slate-400">
+                  Severity:
+                </span>{" "}
+                {incident.severity}
+              </p>
+
+              <p>
+                <span className="font-semibold text-slate-400">
+                  Severity:
+                </span>{" "}
+                {incident.severity}
+              </p>
+
+              <p>
+                <span className="font-semibold text-slate-400">
+                  Status:
+                </span>{" "}
+                {incident.status}
+              </p>
+
+              <p>
+                <span className="font-semibold text-slate-400">
+                  Created:
+                </span>{" "}
+                {new Date(incident.created_at).toLocaleDateString()}
+              </p>
+              <p>
+                <span className="font-semibold text-slate-400">
+                  Status:
+                </span>{" "}
+                {incident.status}
+              </p>
+
+              <p>
+                <span className="font-semibold text-slate-400">
+                  Created:
+                </span>{" "}
+                {new Date(
+                  incident.created_at
+                ).toLocaleDateString()}
+              </p>
+
+            </div>
+
+            <button
+              onClick={() => handleDelete(incident.id)}
+              className="mt-5 w-full rounded-xl bg-red-600 py-3 font-semibold text-white hover:bg-red-700"
+            >
+              Delete
+            </button>
+          </div>
+        ))}
       </div>
     </main>
   );

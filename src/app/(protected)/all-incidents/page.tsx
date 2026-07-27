@@ -131,7 +131,7 @@ export default function IncidentsPage() {
               Total Incidents
             </p>
 
-            <h2 className="mt-3 text-5xl font-bold text-white">
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl text-white">
               {stats.total}
             </h2>
           </div>
@@ -141,7 +141,7 @@ export default function IncidentsPage() {
               Pending
             </p>
 
-            <h2 className="mt-3 text-5xl font-bold text-yellow-400">
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl text-yellow-400">
               {stats.pending}
             </h2>
           </div>
@@ -151,13 +151,13 @@ export default function IncidentsPage() {
               Resolved
             </p>
 
-            <h2 className="mt-3 text-5xl font-bold text-green-400">
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl text-green-400">
               {stats.resolved}
             </h2>
           </div>
         </div>
       </div>
-      <div className="mb-8 flex flex-wrap gap-4 rounded-2xl border border-slate-700 bg-slate-900 p-5 shadow-lg">
+      <div className="mb-8 flex flex-col gap-4 rounded-2xl border border-slate-700 bg-slate-900 p-5 shadow-lg sm:flex-row sm:flex-wrap">
         <input
           type="text"
           placeholder="Search by title..."
@@ -179,16 +179,16 @@ export default function IncidentsPage() {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white outline-none transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
+          className="w-full sm:w-72 rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white outline-none transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
         >
           <option value="All">All Statuses</option>
           <option value="Pending">Pending</option>
           <option value="Resolved">Resolved</option>
         </select>
       </div>
-      <div className="overflow-x-auto rounded-2xl border border-slate-700 bg-slate-900 shadow-lg">
+      <div className="hidden overflow-x-auto rounded-2xl border border-slate-700 bg-slate-900 shadow-lg md:block">
 
-        <table className="min-w-[800px] w-full">
+        <table className="w-full min-w-max">
           <thead>
             {/* <tr className="bg-gray-100 text-black"> */}
             <tr className="border-b border-slate-700 bg-slate-800 text-slate-300">
@@ -271,6 +271,64 @@ export default function IncidentsPage() {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="space-y-4 md:hidden">
+        {filteredIncidents.map((incident) => (
+          <div
+            key={incident.id}
+            className="rounded-2xl border border-slate-700 bg-slate-900 p-5 shadow-lg"
+          >
+            <Link
+              href={`/incidents/${incident.id}`}
+              className="text-lg font-bold text-blue-400 hover:underline"
+            >
+              {incident.title}
+            </Link>
+
+            <div className="mt-4 space-y-2 text-sm">
+
+              <p>
+                <span className="font-semibold text-slate-400">
+                  Severity:
+                </span>{" "}
+                {incident.severity}
+              </p>
+
+              <p>
+                <span className="font-semibold text-slate-400">
+                  Assigned To:
+                </span>{" "}
+                {profiles.find(
+                  (profile) => profile.id === incident.assigned_to
+                )?.full_name ?? "Unassigned"}
+              </p>
+
+              <p>
+                <span className="font-semibold text-slate-400">
+                  Status:
+                </span>{" "}
+                {incident.status}
+              </p>
+
+              <p>
+                <span className="font-semibold text-slate-400">
+                  Created:
+                </span>{" "}
+                {new Date(
+                  incident.created_at
+                ).toLocaleDateString()}
+              </p>
+
+            </div>
+
+            <button
+              onClick={() => handleDelete(incident.id)}
+              className="mt-5 w-full rounded-xl bg-red-600 py-3 font-semibold text-white hover:bg-red-700"
+            >
+              Delete
+            </button>
+          </div>
+        ))}
       </div>
     </main>
   );
