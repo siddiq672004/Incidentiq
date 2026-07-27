@@ -66,7 +66,8 @@ Key benefits include:
 
 ### Incident
 
-<img width="721" height="793" alt="Screenshot 2026-07-27 151145" src="https://github.com/user-attachments/assets/3c84d864-a1b4-46ae-9fb3-8819e24af02e" />
+<img width="1917" height="862" alt="Screenshot 2026-07-27 151145" src="https://github.com/user-attachments/assets/24ea94e7-da28-4de6-af7d-08ade1dc84c0" />
+
 
 <img width="1912" height="852" alt="Screenshot 2026-07-27 150949" src="https://github.com/user-attachments/assets/7a1c4627-a740-4d12-86c6-3f4852de6bbd" />
 
