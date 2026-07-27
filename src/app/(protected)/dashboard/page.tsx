@@ -74,11 +74,11 @@ export default function Dashboard() {
   );
 
   return (
-    <main className="p-8">
+    <main className="mx-auto max-w-7xl p-4 md:p-6 lg:p-8">
 
       {/* Header */}
 
-      <div className="mb-10 flex items-center justify-between">
+      <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
 
         <div>
 
@@ -92,7 +92,7 @@ export default function Dashboard() {
 
           </div>
 
-          <h1 className="text-5xl font-bold text-white">
+          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
 
             Dashboard
 
@@ -138,7 +138,7 @@ export default function Dashboard() {
 
       <div className="rounded-2xl border border-slate-700 bg-slate-900 p-6 shadow-lg">
 
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
           <h2 className="text-2xl font-bold">
 
@@ -148,7 +148,7 @@ export default function Dashboard() {
 
           <button
             onClick={() => router.push("/incidents/new")}
-            className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white shadow-lg shadow-blue-600/30 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-blue-500/40"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white shadow-lg shadow-blue-600/30 transition-all duration-300 hover:bg-blue-700 sm:w-auto"
           >
             <PlusCircle size={18} />
             New Incident
@@ -156,72 +156,74 @@ export default function Dashboard() {
 
         </div>
 
-        <table className="mt-4 w-full overflow-hidden rounded-xl">
+        <div className="overflow-x-auto">
+          <table className="mt-4 min-w-full rounded-xl">
 
-          <thead>
+            <thead>
 
-            <tr className="border-b border-slate-700 text-slate-400">
+              <tr className="border-b border-slate-700 text-slate-400">
 
-              <th className="p-3 text-left">
+                <th className="p-3 text-left">
 
-                Incident
+                  Incident
 
-              </th>
+                </th>
 
-              <th className="p-3">
+                <th className="p-3">
 
-                Severity
+                  Severity
 
-              </th>
+                </th>
 
-              <th className="p-3">
+                <th className="p-3">
 
-                Status
+                  Status
 
-              </th>
-
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            {incidents.slice(0, 5).map((incident) => (
-
-              <tr
-                key={incident.id}
-                className="border-b border-slate-800 transition-colors hover:bg-slate-800"
-              >
-
-                <td className="p-3">
-                  <Link
-                    href={`/incidents/${incident.id}`}
-                    // className="font-medium text-blue-400 transition hover:text-blue-300 hover:underline"
-                    className="font-medium text-slate-200 transition-colors duration-200 hover:text-blue-400"
-                  >
-                    {incident.title}
-                  </Link>
-                </td>
-
-                <td className="text-center">
-
-                  {incident.severity}
-
-                </td>
-
-                <td className="text-center">
-
-                  {incident.status}
-
-                </td>
+                </th>
 
               </tr>
 
-            ))}
+            </thead>
 
-          </tbody>
+            <tbody>
 
-        </table>
+              {incidents.slice(0, 5).map((incident) => (
+
+                <tr
+                  key={incident.id}
+                  className="border-b border-slate-800 transition-colors hover:bg-slate-800"
+                >
+
+                  <td className="p-3">
+                    <Link
+                      href={`/incidents/${incident.id}`}
+                      // className="font-medium text-blue-400 transition hover:text-blue-300 hover:underline"
+                      className="font-medium text-slate-200 transition-colors duration-200 hover:text-blue-400"
+                    >
+                      {incident.title}
+                    </Link>
+                  </td>
+
+                  <td className="text-center">
+
+                    {incident.severity}
+
+                  </td>
+
+                  <td className="text-center">
+
+                    {incident.status}
+
+                  </td>
+
+                </tr>
+
+              ))}
+
+            </tbody>
+
+          </table>
+        </div>
 
       </div>
 
