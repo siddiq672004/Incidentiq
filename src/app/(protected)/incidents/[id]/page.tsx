@@ -154,8 +154,8 @@ export default function IncidentDetailsPage() {
     return <p className="p-8">Loading...</p>;
   }
   return (
-    <main className="max-w-4xl mx-auto p-8 space-y-8">
-      <h1 className="text-4xl font-bold">
+    <main className="mx-auto max-w-4xl space-y-6 p-4 md:p-6 lg:p-8">
+      <h1 className="break-all text-3xl font-bold md:text-4xl">
         {incident.title}
       </h1>
       {/* <pre>{JSON.stringify(incident, null, 2)}</pre> */}
@@ -230,7 +230,7 @@ export default function IncidentDetailsPage() {
           Original Log
         </h2>
 
-        <pre className="rounded bg-gray-100 p-4 whitespace-pre-wrap text-black">
+       <pre className="overflow-x-auto whitespace-pre-wrap break-words rounded bg-gray-100 p-4 text-black">
           {incident.log}
         </pre>
       </div>
