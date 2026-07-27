@@ -41,7 +41,8 @@ export default function NewIncidentPage() {
         alert("You must be logged in.");
         return;
       }
-      const { error } = await supabase
+      // const { error } = await supabase
+      const { data: incident, error } = await supabase
         .from("incidents")
         .insert({
           user_id: user.id,
@@ -53,13 +54,20 @@ export default function NewIncidentPage() {
           status: "Pending",
           possible_cause: data.analysis.possibleCause,
           suggested_fix: data.analysis.suggestedFix,
-        });
+        })
+        .select()
+        .single();
 
       if (error) {
         console.error(error);
         alert("Failed to save incident.");
         return;
       }
+      await supabase.from("activity_logs").insert({
+        incident_id: incident.id,
+        user_id: user.id,
+        action: "Created incident",
+      });
       setAnalysis(data.analysis);
 
     } catch (error) {

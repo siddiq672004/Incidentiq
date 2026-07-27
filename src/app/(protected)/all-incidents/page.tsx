@@ -9,6 +9,11 @@ export default function IncidentsPage() {
   const [search, setSearch] = useState("");
   const [severityFilter, setSeverityFilter] = useState("All");
   const [statusFilter, setStatusFilter] = useState("All");
+  const [stats, setStats] = useState({
+    total: 0,
+    pending: 0,
+    resolved: 0,
+  });
   async function handleDelete(id: string) {
     const confirmed = window.confirm(
       "Are you sure you want to delete this incident?"
@@ -53,6 +58,17 @@ export default function IncidentsPage() {
       }
 
       setIncidents(data);
+      setStats({
+        total: data?.length || 0,
+        pending:
+          data?.filter(
+            (incident) => incident.status === "Pending"
+          ).length || 0,
+        resolved:
+          data?.filter(
+            (incident) => incident.status === "Resolved"
+          ).length || 0,
+      });
       const { data: profileData, error: profileError } =
         await supabase
           .from("profiles")
@@ -109,6 +125,37 @@ export default function IncidentsPage() {
         <p className="mt-2 text-slate-400">
           Browse and manage incidents across your organization.
         </p>
+        <div className="mb-8 grid gap-6 md:grid-cols-3">
+          <div className="rounded-2xl border border-slate-700 bg-slate-900 p-6 shadow-lg transition-all duration-300 hover:scale-105">
+            <p className="text-sm text-slate-400">
+              Total Incidents
+            </p>
+
+            <h2 className="mt-3 text-5xl font-bold text-white">
+              {stats.total}
+            </h2>
+          </div>
+
+          <div className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-6 shadow-lg transition-all duration-300 hover:scale-105">
+            <p className="text-sm text-yellow-400">
+              Pending
+            </p>
+
+            <h2 className="mt-3 text-5xl font-bold text-yellow-400">
+              {stats.pending}
+            </h2>
+          </div>
+
+          <div className="rounded-2xl border border-green-500/30 bg-green-500/10 p-6 shadow-lg transition-all duration-300 hover:scale-105">
+            <p className="text-sm text-green-400">
+              Resolved
+            </p>
+
+            <h2 className="mt-3 text-5xl font-bold text-green-400">
+              {stats.resolved}
+            </h2>
+          </div>
+        </div>
       </div>
       <div className="mb-8 flex flex-wrap gap-4 rounded-2xl border border-slate-700 bg-slate-900 p-5 shadow-lg">
         <input
