@@ -34,6 +34,15 @@ Key benefits include:
 - Responsive design for desktop and mobile
 - Dark modern user interface
 
+## Key Pages
+
+- Dashboard – Displays key incident statistics and the incidents currently assigned to the logged-in user.
+- New Incident – Allows users to submit an incident title and error log for AI-powered analysis and create a new incident.
+- My Incidents – Displays all incidents assigned to the logged-in user and allows them to manage their assigned work.
+- All Incidents – Displays all reported incidents with filtering options.
+- Incident Details – Displays detailed incident information, AI-generated analysis, comments, assignment status, and resolution actions.
+- Authentication – Secure user registration and login using Supabase Auth.
+
 ## Tech Stack
 
 ### Frontend
