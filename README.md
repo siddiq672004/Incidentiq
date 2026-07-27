@@ -162,4 +162,4 @@ GitHub:
 https://github.com/siddiq672004
 
 LinkedIn:
-https://linkedin.com/in/YOUR_PROFILE
+https://www.linkedin.com/in/kmohammedsiddiq/
